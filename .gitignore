@@ -1,0 +1,16 @@
+# 依赖包（体积巨大，人人可自行安装）
+node_modules/
+
+# 密钥、密码文件（绝对不能上传！）
+.env
+*.key
+*.pem
+
+# 系统缓存
+__pycache__/
+.DS_Store
+Thumbs.db
+
+# 大文件
+*.zip
+*.mp4
