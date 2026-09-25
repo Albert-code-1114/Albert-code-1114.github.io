@@ -104,18 +104,21 @@
 |---|---|
 | `about` | `bio` 一段自我介绍；`facts[]` 是「标签 + 内容」的关键信息行 |
 | `education` | `items[]`：`school` `major` `degree` `period` `score` `details[]` |
-| `skills` | `groups[]`：`name` 组名 + `items[]` 技能（可以直接写字符串） |
+| `research` | 科研经历。`items[]`：`org` `title` `period` `details[]` |
+| `awards` | 竞赛与荣誉。`items[]`：`title` `date` `note` `details[]`（可选多行要点） |
 | `projects` | `items[]`：`name` `role` `period` `summary` `highlights[]` `tech[]` `links[]` |
-| `experience` | `items[]`：`org` `title` `period` `details[]`（默认关闭） |
-| `awards` | `items[]`：`title` `date` `note` |
+| `experience` | 校园经历。`items[]`：`org` `title` `period` `details[]` |
+| `skills` | `groups[]`：`name` 组名 + `items[]` 技能（可以直接写字符串） |
 | `contact` | `intro` 一句话；`items[]`：`icon` `label` `value` `url` |
+
+> `research` 和 `experience` 共用同一套时间线结构，字段完全一样，想加第二段科研经历直接往 `research.items` 里再追加一个对象即可。
 
 **通用规则**
 
 - 中英双语：`{ zh: "中文", en: "English" }`；只写 `"一句话"` 则两种语言显示同一句
 - 任何字段**留空 `""` 或空数组 `[]`，页面上就不显示**，不会留下空壳
 - 英文留空会自动回退显示中文
-- 列表条目按「主字段」判断是否显示：教育看 `school`、项目看 `name`、奖项看 `title`、技能组看 `name`、联系方式看 `value`/`url`
+- 列表条目按「主字段」判断是否显示：教育看 `school`、科研/校园看 `org` 或 `title`、竞赛看 `title`、项目看 `name`、技能组看 `name`、联系方式看 `value`/`url`
 
 ---
 

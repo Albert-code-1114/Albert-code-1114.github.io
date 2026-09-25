@@ -96,13 +96,14 @@
      2 · 版块清单（顺序就是页面上的顺序）
      --------------------------------------------------------------- */
   const SECTIONS = [
-    { key: "about",      zh: "关于我",   en: "About" },
-    { key: "education",  zh: "教育经历", en: "Education" },
-    { key: "skills",     zh: "专业技能", en: "Skills" },
-    { key: "projects",   zh: "项目经历", en: "Projects" },
-    { key: "experience", zh: "校园经历", en: "Experience" },
-    { key: "awards",     zh: "荣誉奖项", en: "Awards" },
-    { key: "contact",    zh: "联系方式", en: "Contact" }
+    { key: "about",      zh: "关于我",     en: "About" },
+    { key: "education",  zh: "教育经历",   en: "Education" },
+    { key: "research",   zh: "科研经历",   en: "Research" },
+    { key: "awards",     zh: "竞赛与荣誉", en: "Competitions & Honors" },
+    { key: "projects",   zh: "项目经历",   en: "Projects" },
+    { key: "experience", zh: "校园经历",   en: "Campus Experience" },
+    { key: "skills",     zh: "专业技能",   en: "Skills" },
+    { key: "contact",    zh: "联系方式",   en: "Contact" }
   ];
 
   /* ---------------------------------------------------------------
@@ -118,6 +119,9 @@
       .filter((f) => f && (has(f.label) || has(f.value)));
 
     d.education = arr(P.education && P.education.items).filter((it) => it && has(it.school));
+
+    d.research = arr(P.research && P.research.items)
+      .filter((it) => it && (has(it.org) || has(it.title)));
 
     d.skills = arr(P.skills && P.skills.groups)
       .map((g) => ({ g, items: arr(g && g.items).filter((i) => has(i)) }))
@@ -145,6 +149,7 @@
     switch (key) {
       case "about":      return has(P.about && P.about.bio) || d.about.length > 0;
       case "education":  return d.education.length > 0;
+      case "research":   return d.research.length > 0;
       case "skills":     return d.skills.length > 0;
       case "projects":   return d.projects.length > 0;
       case "experience": return d.experience.length > 0;
@@ -298,12 +303,12 @@
       </section>`;
   }
 
-  function renderExperience(num) {
-    const items = arr(P.experience && P.experience.items).filter((it) => it && (has(it.org) || has(it.title)));
+  /* 时间线型版块：科研经历 / 校园经历 共用同一套结构 */
+  function renderTimeline(id, num, title, items) {
     return `
-      <section class="sec" id="experience">
+      <section class="sec" id="${id}">
         <div class="container">
-          ${secHead(num, LANG === "zh" ? "校园经历" : "Experience")}
+          ${secHead(num, title)}
           <ol class="timeline">${items.map((it) => {
             const details = arr(it.details).filter(has);
             return `
@@ -320,18 +325,31 @@
       </section>`;
   }
 
+  const renderResearch = (num) => renderTimeline("research", num,
+    LANG === "zh" ? "科研经历" : "Research",
+    arr(P.research && P.research.items).filter((it) => it && (has(it.org) || has(it.title))));
+
+  const renderExperience = (num) => renderTimeline("experience", num,
+    LANG === "zh" ? "校园经历" : "Campus Experience",
+    arr(P.experience && P.experience.items).filter((it) => it && (has(it.org) || has(it.title))));
+
+  /* 竞赛与荣誉：条目支持可选的 details[] 多行要点 */
   function renderAwards(num) {
     const items = arr(P.awards && P.awards.items).filter((it) => it && has(it.title));
     return `
       <section class="sec" id="awards">
         <div class="container">
-          ${secHead(num, LANG === "zh" ? "荣誉奖项" : "Awards")}
-          <ul class="award-list">${items.map((it) => `
+          ${secHead(num, LANG === "zh" ? "竞赛与荣誉" : "Competitions & Honors")}
+          <ul class="award-list">${items.map((it) => {
+            const details = arr(it.details).filter(has);
+            return `
             <li class="award">
               <span class="award-title">${esc(t(it.title))}</span>
               ${has(it.note) ? `<span class="award-note">${esc(t(it.note))}</span>` : ""}
               ${has(it.date) ? `<span class="award-date">${esc(t(it.date))}</span>` : ""}
-            </li>`).join("")}</ul>
+              ${details.length ? `<ul class="award-details">${details.map((x) => `<li>${esc(t(x))}</li>`).join("")}</ul>` : ""}
+            </li>`;
+          }).join("")}</ul>
         </div>
       </section>`;
   }
@@ -520,6 +538,7 @@
       switch (s.key) {
         case "about":      return renderAbout(num);
         case "education":  return renderEducation(num);
+        case "research":   return renderResearch(num);
         case "skills":     return renderSkills(num);
         case "projects":   return renderProjects(num);
         case "experience": return renderExperience(num);

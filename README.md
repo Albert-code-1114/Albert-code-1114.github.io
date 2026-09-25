@@ -1,29 +1,29 @@
 # 你好，我是 XBingbing 👋
 
-计算机科学与技术 · 本科在读　|　后端开发 / 算法方向
+中国科学技术大学 · 机器人工程（本科在读）　|　机器人结构设计 / 机械设计
 
-目前就读于 ××大学计算机科学与技术专业，喜欢折腾后端开发和算法题。做过几个从零到一的小项目，也参加过一些学科竞赛，希望能在实习中把课堂上学到的东西用在真实的工程里。
+在校机器人创新实践基地做轮腿底盘研发，负责机械结构；同时是 RoboMaster 校 RoboWalker 战队机械组成员。喜欢把设计从图纸做到实物 —— 构型比选、建模出图、对接加工、装配调试，整条链路都想亲手走一遍。
 
-**完整简历、项目经历与联系方式 → [albert-code-1114.github.io](https://albert-code-1114.github.io/)**
+**完整简历、科研与竞赛经历 → [albert-code-1114.github.io](https://albert-code-1114.github.io/)**
 
 ---
 
 ## 我在做什么
 
-- **后端开发** —— Spring Boot / MySQL / Redis，做过一个完整落地的校园二手交易平台
-- **算法与数据结构** —— 刷题 400+，参加过蓝桥杯、全国大学生数学建模竞赛
-- **正在补的课** —— Docker 与分布式系统基础
+- **机器人结构设计** —— 主导第一版轮腿底盘研制，独立重构腿部轴系；设计 26 赛季轮腿英雄机器人结构
+- **竞赛** —— RoboMaster 2026 机甲大师超级对抗赛全国赛二等奖（校 RoboWalker 战队机械组）
+- **正在学** —— 理论力学、机械设计基础、工程制图
 
-## 常用技术
+## 常用工具
 
-`C / C++`　`Python`　`Java`　`JavaScript`　`SQL`　`Git`　`Linux`　`Docker`　`MySQL`　`Redis`　`Spring Boot`　`PyTorch`
+`SolidWorks`　`C / C++`　`Python`　`JavaScript`　`MATLAB`　`Keil uVision`　`Git`
 
 ## 联系我
 
 - 个人主页 —— <https://albert-code-1114.github.io/>
 - GitHub —— [@Albert-code-1114](https://github.com/Albert-code-1114)
 
-有实习机会，或者单纯想聊聊技术，都欢迎通过上面任意一个渠道找到我。
+有结构设计相关的实习机会，或者单纯想聊聊机器人，都欢迎通过上面任意一个渠道找到我。
 
 ---
 

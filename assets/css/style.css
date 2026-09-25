@@ -234,15 +234,24 @@ img { max-width: 100%; display: block; }
 .link-btn:hover { text-decoration: underline; text-underline-offset: 3px; }
 .link-btn .ico { width: 15px; height: 15px; }
 
-/* ============================== 荣誉奖项 ============================== */
+/* ============================== 竞赛与荣誉 ============================== */
 .award {
-  display: flex; align-items: baseline; gap: 14px;
+  display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
   padding: 11px 0; border-bottom: 1px dashed var(--line);
 }
 .award:last-child { border-bottom: none; }
 .award-title { font-size: 15.5px; font-weight: 500; }
 .award-note { font-size: 13.5px; color: var(--muted); white-space: nowrap; }
 .award-date { margin-left: auto; font-family: var(--mono); font-size: 13px; color: var(--muted); white-space: nowrap; }
+.award-details { flex-basis: 100%; margin-top: 7px; }
+.award-details li {
+  position: relative; padding-left: 18px; font-size: 14.5px;
+  color: var(--fg-2); margin-bottom: 4px;
+}
+.award-details li::before {
+  content: ""; position: absolute; left: 0; top: .72em;
+  width: 10px; height: 1px; background: var(--line-strong);
+}
 
 /* ============================== 联系方式 ============================== */
 .contact-intro { font-size: 15px; color: var(--muted); margin-bottom: 20px; max-width: 64ch; }
