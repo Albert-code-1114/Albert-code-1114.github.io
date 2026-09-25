@@ -1,0 +1,9 @@
+# 允许搜索引擎收录主页
+User-agent: *
+Allow: /
+
+# 但不要收录 PDF 文件：简历 PDF 里通常有手机号和邮箱，
+# 一旦被搜索引擎索引，任何人搜你的名字都能直接下载。
+Disallow: /*.pdf$
+Disallow: /assets/resume
+Disallow: /assets/img/private/

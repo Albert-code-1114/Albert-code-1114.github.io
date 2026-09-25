@@ -3,13 +3,23 @@ node_modules/
 
 # 密钥、密码文件（绝对不能上传！）
 .env
+.env.*
 *.key
 *.pem
+*.p12
+secrets.*
+
+# 私人资料：草稿版简历、原始照片、还没决定公开的材料
+# 把这些放进 private/ 文件夹，就不会被提交到 GitHub
+private/
+drafts/
+*.private.*
 
 # 系统缓存
 __pycache__/
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # 大文件
 *.zip

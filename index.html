@@ -1,8 +1,44 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head><meta charset="utf-8"><title>我的主页</title></head>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>个人主页</title>
+<meta name="description" content="个人主页 —— 教育经历、项目经历、专业技能与联系方式。">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="个人主页">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
 <body>
-  <h1>Hello,I'm XBingbing</h1>
-  <p>This is my first github page</p>
+
+<!-- 键盘用户的无障碍跳转链接 -->
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<!-- 顶部导航（由 main.js 根据配置自动生成） -->
+<header class="nav" id="nav" hidden></header>
+
+<!-- 页面主体（内容全部来自 profile.js） -->
+<main id="main"></main>
+
+<!-- 页脚 -->
+<footer class="footer" id="footer" hidden></footer>
+
+<!-- 关掉 JS 时的兜底内容。
+     注意：这里不要写邮箱地址 —— 静态 HTML 里的邮箱会被爬虫直接抓走，
+     邮箱统一放在 profile.js 的 settings.email 里拆成两段，由脚本在浏览器端拼装。 -->
+<noscript>
+  <div class="container" style="padding:56px 24px">
+    <h1>XBingbing</h1>
+    <p>这个主页需要开启 JavaScript 才能显示完整内容，请在浏览器设置里打开 JavaScript 后刷新。</p>
+    <p>也可以通过 GitHub 联系我：<a href="https://github.com/Albert-code-1114">Albert-code-1114</a></p>
+  </div>
+</noscript>
+
+<!-- ① 你的个人信息都在这个文件里，改它就够了 -->
+<script src="profile.js"></script>
+<!-- ② 渲染引擎，一般不用动 -->
+<script src="assets/js/main.js"></script>
 </body>
 </html>

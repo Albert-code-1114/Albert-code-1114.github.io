@@ -1,0 +1,38 @@
+# ==========================================================================
+# 统一换行符策略
+# --------------------------------------------------------------------------
+# 为什么需要这个文件：
+#   Windows 上 Git 默认 core.autocrlf=true，会在签出时把 LF 换成 CRLF，
+#   于是每次 git add 都会报警告：
+#     "This file uses 'LF' line endings, but Git is configured to convert
+#      them to 'CRLF' the next time the file is checked out."
+#   这个文件的规则【优先于】core.autocrlf，写清楚之后告警就消失了，
+#   而且不管谁在什么系统上克隆，行尾都完全一致，diff 也不会再出现整文件差异。
+# ==========================================================================
+
+# 默认：自动识别文本文件，仓库内和签出后一律使用 LF
+* text=auto eol=lf
+
+# 明确标记为二进制，Git 不要去碰它们的内容
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.pdf   binary
+*.zip   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+
+# Windows 批处理 / PowerShell 脚本必须保留 CRLF，否则可能无法执行
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+*.ps1  text eol=crlf
+
+# 锁文件在 diff 里没有任何阅读价值，折叠掉
+package-lock.json  -diff
+pnpm-lock.yaml     -diff
+yarn.lock          -diff
