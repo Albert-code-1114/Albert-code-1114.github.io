@@ -78,7 +78,7 @@ const PROFILE = {
       { icon: "mail",   label: { zh: "邮箱",   en: "Email"  }, url: "#email" },
       { icon: "file",   label: { zh: "下载简历", en: "Resume" }, url: "" }
       // ↑ 简历建议不要直接放进这个公开仓库：PDF 里通常有手机号和邮箱，
-      //   一旦提交就永久留在 Git 历史里，谁都能下载。想放就看看 README 的「隐私保护」一节。
+      //   一旦提交就永久留在 Git 历史里，谁都能下载。想放就看看 GUIDE.md 的「简历 PDF」一节。
     ]
   },
 
